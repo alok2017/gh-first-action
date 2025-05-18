@@ -6,5 +6,7 @@ public class MyTest {
     void testAddition() {
         int sum = 2 + 3;
         assertEquals(5, sum);
+        System.out.println("✅ Test passed: Addition works correctly!");
+
     }
 }
