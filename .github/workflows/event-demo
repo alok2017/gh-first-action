@@ -1,1 +1,18 @@
-
+name: event demo
+on: 
+  pull_request:
+    types:
+      -  opened
+    branches:
+      - main #main
+      -  dev-* #dev-new dev-test
+    path-ignore:
+      -  '.github/workflows/*'
+  workflow_dispatch:
+  push:
+    branches:
+      -  main
+      -  dev-*
+    path-ignore:
+      -  '.github/workflows/*'
+  
