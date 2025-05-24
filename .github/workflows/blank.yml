@@ -3,10 +3,10 @@ name: Java CI
 on:
   push:
     branches:
-      - main
+      - gh-reports
   pull_request:
     branches:
-      - main
+      - gh-reports
 
 jobs:
   test:
@@ -26,7 +26,13 @@ jobs:
       run: |
         mvn clean install
         mvn test
-        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: reports-file
+        path: |
+          reports
+          dummy-file.html
   Deploy:
     needs: test
     runs-on: ubuntu-latest
