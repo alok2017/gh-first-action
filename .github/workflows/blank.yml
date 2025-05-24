@@ -11,9 +11,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      reports-file: ${{steps.publish.outputs.dummy-file}}
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+    -  name: Publish html file name
+       id: publish
+       run: find reports/*.html -type f -execdir echo '{dummy-file={}}' >> $GITHUB_OUTPUT ';'
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
@@ -35,4 +40,6 @@ jobs:
         name: reports-file
     - name: Display content
       run: ls
+    - name: Output file name
+      run: echo "${{needs.test.output.reports-file}}"
 
