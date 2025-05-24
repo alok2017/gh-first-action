@@ -1,4 +1,4 @@
-name: Java CI
+name: reports and artifacts
 
 on:
   push:
@@ -11,15 +11,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-
-    - name: Build and test
-      run: |
-        mvn clean install
-        mvn test
+      
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -27,20 +22,4 @@ jobs:
         path: |
           reports
           dummy-file.html
-  Deploy:
-    needs: test
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '17'
-
-    - name: Deploy
-      run: echo "deploying microservice application"
 
