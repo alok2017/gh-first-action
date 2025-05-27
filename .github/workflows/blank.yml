@@ -28,7 +28,7 @@ jobs:
         mvn clean install
         mvn test
     - name: Publish test reports
-      if: failure() && steps.bandt.report == 'failure'
+      if: failure() && steps.bandt.outcome == 'failure'
       run: echo "...Test result failed..."
         
   Deploy:
