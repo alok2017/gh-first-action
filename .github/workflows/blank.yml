@@ -44,3 +44,10 @@ jobs:
     - name: Deploy
       run: echo "deploying microservice application"
 
+  Reports:
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      name: validation steps
+      run: echo "validate if conditions"
+
