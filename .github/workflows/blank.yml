@@ -45,6 +45,7 @@ jobs:
       run: echo "deploying microservice application"
 
   Reports:
+    needs: [test, Deploy]
     if: failure()
     runs-on: ubuntu-latest
     
