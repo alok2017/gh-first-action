@@ -23,9 +23,13 @@ jobs:
         java-version: '17'
 
     - name: Build and test
+      id: bandt
       run: |
         mvn clean install
         mvn test
+    - name: Publish test reports
+      if: steps.bandt.report ='failure'
+      run: echo "...Test result failed..."
         
   Deploy:
     needs: test
