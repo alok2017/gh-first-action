@@ -27,6 +27,7 @@ jobs:
 
       - name: Print Welcome Message
         run: echo "The message printed by the custom action is: '${{ steps.welcome.outputs.printed-message }}'"
+        shell: bash
 
       - name: Build and test
         run: |
