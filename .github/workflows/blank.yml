@@ -25,8 +25,8 @@ jobs:
         with:
           message: 'welcome to my third github custom action'
 
-      - name: Show Printed Message Output
-        run: echo "Output from action ${{ steps.welcome.outputs.printed-message }}"
+      - name: Print Welcome Message
+        run: echo "The message printed by the custom action is: ${{ steps.welcome.outputs.printed-message }}"
 
       - name: Build and test
         run: |
