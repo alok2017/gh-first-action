@@ -10,28 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-    - name: My First Custom Action
-      id: welcome
-      uses: ./.github/actions/ctest
-      with:
-        message: 'welcome to my third github custom action'
+      - name: My First Custom Action
+        id: welcome
+        uses: ./.github/actions/ctest
+        with:
+          message: 'welcome to my third github custom action'
 
-    - name: Show Printed Message Output
-      run: echo "Output from action: ${{ steps.welcome.outputs.printed-message }}"
+      - name: Show Printed Message Output
+        run: echo "Output from action: ${{ steps.welcome.outputs.printed-message }}"
 
-    - name: Build and test
-      run: |
-        mvn clean install
-        mvn test
+      - name: Build and test
+        run: |
+          mvn clean install
+          mvn test
         
   Deploy:
     needs: test
