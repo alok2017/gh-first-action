@@ -12,9 +12,8 @@ runs:
   using: "composite"
   steps:
     - name: Print Welcome Message
-      id: print
       run: |
-        echo '${{ inputs.message }}'
-        echo "printed-message=${{ inputs.message }}" >> $GITHUB_OUTPUT
+        echo '${{ inputs.message }}' '${{ inputs.message }}'
+        echo "printed-message=${{ inputs.message }}" >> $GITHUB_OUTPUTputs.message }}" >> $GITHUB_OUTPUT
       shell: bash
 
