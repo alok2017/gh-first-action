@@ -5,4 +5,5 @@ runs:
   steps:
     - name: Print Welcome Message
       run: echo 'welcome to my first github custom action'
+      shell: bash
 
