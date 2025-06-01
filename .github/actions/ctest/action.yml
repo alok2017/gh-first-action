@@ -13,7 +13,7 @@ runs:
   steps:
     - name: Print Welcome Message
       run: |
-        echo '${{ inputs.message }}' '${{ inputs.message }}'
-        echo "printed-message=${{ inputs.message }}" >> $GITHUB_OUTPUTputs.message }}" >> $GITHUB_OUTPUT
+        echo '${{ inputs.message }}'
+        echo "printed-message=${{ inputs.message }}" >> $GITHUB_OUTPUT
       shell: bash
 
