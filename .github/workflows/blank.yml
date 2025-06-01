@@ -32,21 +32,21 @@ jobs:
         run: |
           mvn clean install
           mvn test
-        
+
   Deploy:
     needs: test
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-    - name: Deploy
-      run: echo "deploying microservice application"
+      - name: Deploy
+        run: echo "deploying microservice application"
 
