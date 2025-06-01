@@ -20,9 +20,13 @@ jobs:
         java-version: '17'
 
     - name: My First Custom Action
+      id: welcome
       uses: ./.github/actions/ctest
       with:
         message: 'welcome to my third github custom action'
+
+    - name: Show Printed Message Output
+      run: echo "Output from action: ${{ steps.welcome.outputs.printed-message }}"
 
     - name: Build and test
       run: |
