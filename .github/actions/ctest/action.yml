@@ -1,1 +1,8 @@
+name: 'My First Custom Action'
+description: 'A simple custom action to print a welcome message'
+runs:
+  using: "composite"
+  steps:
+    - name: Print Welcome Message
+      run: echo 'welcome to my first github custom action'
 
