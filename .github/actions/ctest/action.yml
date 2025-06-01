@@ -1,9 +1,14 @@
 name: 'My First Custom Action'
 description: 'A simple custom action to print a welcome message'
+inputs:
+  message:
+    description: 'The message to print'
+    required: true
+    default: 'welcome to my first github custom action'
 runs:
   using: "composite"
   steps:
     - name: Print Welcome Message
-      run: echo 'welcome to my first github custom action'
+      run: echo '${{ inputs.message }}'
       shell: bash
 

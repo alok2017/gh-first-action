@@ -21,6 +21,8 @@ jobs:
 
     - name: My First Custom Action
       uses: ./.github/actions/ctest
+      with:
+        message: 'welcome to my third github custom action'
 
     - name: Build and test
       run: |
