@@ -22,6 +22,9 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
+    - name: My First Custom Action
+      uses: ./.github/actions/ctest
+
     - name: Build and test
       run: |
         mvn clean install
