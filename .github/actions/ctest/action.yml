@@ -8,10 +8,12 @@ inputs:
 outputs:
   printed-message:
     description: 'The message that was printed'
+    value: '${{ steps.print-message.outputs.printed-message }}'
 runs:
   using: "composite"
   steps:
     - name: Print Welcome Message
+      id: print-message
       run: |
         echo '${{ inputs.message }}'
         echo "printed-message=${{ inputs.message }}" >> $GITHUB_OUTPUT
